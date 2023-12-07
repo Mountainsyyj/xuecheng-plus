@@ -1,4 +1,4 @@
-package cn.yyj.content.po;
+package cn.yyj.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

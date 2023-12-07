@@ -3,7 +3,7 @@ package cn.yyj.content.api;
 import cn.yyj.base.model.PageParams;
 import cn.yyj.base.model.PageResult;
 import cn.yyj.base.model.dto.QueryCourseParamsDto;
-import cn.yyj.content.po.CourseBase;
+import cn.yyj.content.model.po.CourseBase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,7 +1,9 @@
-package cn.yyj.content.po;
+package cn.yyj.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -10,20 +12,21 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 课程发布
+ * 课程基本信息
  * </p>
  *
  * @author yyj
  */
 @Data
-@TableName("course_publish")
-public class CoursePublish implements Serializable {
+@TableName("course_base")
+public class CourseBase implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键
      */
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -32,7 +35,7 @@ public class CoursePublish implements Serializable {
     private Long companyId;
 
     /**
-     * 公司名称
+     * 机构名称
      */
     private String companyName;
 
@@ -47,14 +50,9 @@ public class CoursePublish implements Serializable {
     private String users;
 
     /**
-     * 标签
+     * 课程标签
      */
     private String tags;
-
-    /**
-     * 创建人
-     */
-    private String username;
 
     /**
      * 大分类
@@ -62,19 +60,9 @@ public class CoursePublish implements Serializable {
     private String mt;
 
     /**
-     * 大分类名称
-     */
-    private String mtName;
-
-    /**
      * 小分类
      */
     private String st;
-
-    /**
-     * 小分类名称
-     */
-    private String stName;
 
     /**
      * 课程等级
@@ -82,14 +70,9 @@ public class CoursePublish implements Serializable {
     private String grade;
 
     /**
-     * 教育模式
+     * 教育模式(common普通，record 录播，live直播等）
      */
     private String teachmode;
-
-    /**
-     * 课程图片
-     */
-    private String pic;
 
     /**
      * 课程介绍
@@ -97,65 +80,41 @@ public class CoursePublish implements Serializable {
     private String description;
 
     /**
-     * 课程营销信息，json格式
+     * 课程图片
      */
-    private String market;
+    private String pic;
 
     /**
-     * 所有课程计划，json格式
-     */
-    private String teachplan;
-
-    /**
-     * 教师信息，json格式
-     */
-    private String teachers;
-
-    /**
-     * 发布时间
+     * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createDate;
 
     /**
-     * 上架时间
+     * 修改时间
      */
-    private LocalDateTime onlineDate;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime changeDate;
 
     /**
-     * 下架时间
+     * 创建人
      */
-    private LocalDateTime offlineDate;
+    private String createPeople;
 
     /**
-     * 发布状态
+     * 更新人
+     */
+    private String changePeople;
+
+    /**
+     * 审核状态
+     */
+    private String auditStatus;
+
+    /**
+     * 课程发布状态 未发布  已发布 下线
      */
     private String status;
-
-    /**
-     * 备注
-     */
-    private String remark;
-
-    /**
-     * 收费规则，对应数据字典--203
-     */
-    private String charge;
-
-    /**
-     * 现价
-     */
-    private Float price;
-
-    /**
-     * 原价
-     */
-    private Float originalPrice;
-
-    /**
-     * 课程有效期天数
-     */
-    private Integer validDays;
 
 
 }
